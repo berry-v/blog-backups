@@ -4,6 +4,10 @@ date: 2017-06-17
 tags: [小技巧, css]
 ---
 
+在制作web页面的时候，使用图标的情形是很多的，实现的方式也可以有多种。
+从使用背景图片到图标字体库再到定制图标字体，虽然已经有很多人写过这个问题，但是还是想说再来简单的总结一下。
+
+
 ## web页面中图标使用 fontIcon
 
 ### 背景图片
@@ -84,21 +88,22 @@ tags: [小技巧, css]
 使用 data- 属性来嵌入自定义数据*
 后来发现还可以这样用，简直觉得神奇有木有，当有很多个图标的时候，这样写感觉会清新很多啊
 >&lt;ul&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&#xe601;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&#xe602;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&#xe603;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&#xe604;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&#xe605;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&#xe606;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&#xe608;”&gt;&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe601;”&gt;&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe602;”&gt;&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe603;”&gt;&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe604;”&gt;&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe605;”&gt;&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe606;”&gt;&lt;/i&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe608;”&gt;&lt;/i&gt;&lt;/li&gt;
 &lt;/ul&gt;
  [data-icon] :before{
 &nbsp;content: attr(data-icon);
 }
 
 最后,一排图标飘过~ ~ ~
-<style type="text/css">@font-face { font-family: “icon”; src: url('../assets/fonts/mengmengda/icon.eot'), url('../assets/fonts/mengmengda/icon.eot#iefix') format('embedded-opentype'), url('../assets/fonts/mengmengda/icon.woff') format('woff'), url('../assets/fonts/mengmengda/icon.ttf') format('truetype'), url('../assets/fonts/mengmengda/icon.svg#../assets/fonts/mengmengda/icon') format('svg'); }.icon li { font-family: ”icon” !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: inline-block; }.icon li:before { content: attr(data-icon); }</style>
-<ul class="icon"><li data-icon="&#xe77b;"></li><li data-icon="&#xe77c;"></li><li data-icon="&#xe77d;"></li><li data-icon="&#xe77e;"></li><li data-icon="&#xe77f;"></li><li data-icon="&#xe780;"></li><li data-icon="&#xe781;"></li><li data-icon="&#xe782;"></li><li data-icon="&#xe783;"></li><li data-icon="&#xe784;"></li><li data-icon="&#xe785;"></li><li data-icon="&#xe786;"></li><li data-icon="&#xe787;"></li><li data-icon="&#xe788;"></li><li data-icon="&#xe789;"></li><li data-icon="&#xe78a;"></li><li data-icon="&#xe78b;"></li><li data-icon="&#xe78c;"></li><li data-icon="&#xe78d;"></li><li data-icon="&#xe78e;"></li></ul>
+
+<style type="text/css">@font-face{font-family:"icon";src:url('../assets/fonts/mengmengda/icon.eot');src:url('../assets/fonts/mengmengda/icon.eot#iefix') format('embedded-opentype'),url('../assets/fonts/mengmengda/icon.woff') format('woff'),url('../assets/fonts/mengmengda/icon.ttf') format('truetype'),url('../assets/fonts/mengmengda/icon.svg#icon') format('svg');}.icon_lists li{font-family:"icon"!important;font-size:30px;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:0.2px;-moz-osx-font-smoothing:grayscale;list-style:none !important; display: inline-block;}.icon_lists li:before{content:attr(data-icon);}</style>
+<ul class="icon_lists"><li data-icon="&#xe6a4;"></li><li data-icon="&#xe6a5;"></li><li data-icon="&#xe6a6;"></li><li data-icon="&#xe6a7;"></li><li data-icon="&#xe6a8;"></li><li data-icon="&#xe6a9;"></li><li data-icon="&#xe6aa;"></li><li data-icon="&#xe6ab;"></li><li data-icon="&#xe6ac;"></li><li data-icon="&#xe6ad;"></li><li data-icon="&#xe6ae;"></li><li data-icon="&#xe6af;"></li><li data-icon="&#xe6b0;"></li><li data-icon="&#xe6b1;"></li><li data-icon="&#xe6b2;"></li><li data-icon="&#xe6b3;"></li><li data-icon="&#xe6b4;"></li><li data-icon="&#xe6b5;"></li><li data-icon="&#xe6b6;"></li><li data-icon="&#xe6b7;"></li></ul>
 
 各有利弊，具体情况，还是要根据具体使用情况去判断。
-若有其他的写法再更新~~
+不知有无更好解决方案，有再更新~~
