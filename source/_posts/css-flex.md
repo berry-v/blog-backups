@@ -1,7 +1,7 @@
 ---
 title: flex (Flexible Box弹性盒模型) 弹性布局 学习之路~
 date: 2017-06-19
-tags: [css, html, 布局]
+tags: [CSS, HTML, 布局]
 type: 技术
 ---
 
@@ -16,7 +16,7 @@ type: 技术
 他可以由开发者自由的定义元素的排列方式, 排列顺序, 元素分布的方向, 通过拉伸缩小以适应容器的大小. 听起来都还有点小激动呢
 对浏览器的支持,也还可以, 如果不是非要兼容某些不常用的老版本浏览器的话,都可以考虑用这个来布局, 简直不能更美好~~
 
-注: 本文仅为学习记录, 不考虑兼容性, 若需考虑兼容性, 再去查~ ~
+注: 本文仅为学习记录, 参考网上提供的资料结合自己的理解和测试而成, 不考虑兼容性, 若需考虑兼容性, 再去查~ ~
 
 ## 属性
 <style type="text/css">ul, li { list-style: none !important; padding: 5px; margin: 3px; }.center li { background-color: #bdcfcf; }.center li:nth-child(1) { background-color: #d3e3e6; }.center li:nth-child(2) { background-color: #c8e2de; }.center li:nth-child(3) { background-color: #87a2a0; }.center li:nth-child(4) { background-color: #85a3a0; }.center li:nth-child(5) { background-color: #7da797; }.center li:nth-child(6) { background-color: #cce7ce; }.center li:nth-child(7) { background-color: #a2bfb8; }.center li:nth-child(8) { background-color: #3d3b3b; }.center li:nth-child(9) { background-color: #798f85; }.center li:nth-child(10) { background-color: #c6c1b5; }.center li:nth-child(11) { background-color: #a18d6f; }.center li:nth-child(12) { background-color: #d7eedd; }.center li:nth-child(13) { background-color: #f9f6ec; }.center li:nth-child(14) { background-color: #f7e39d; }.center { text-align: center; color: #fff; border: 1px solid #daf7f2;}</style>
@@ -128,8 +128,8 @@ align-content: space-around; 上下等分之后,再在每一行的上下居中
 ### flex
 flex-grow(放大) flex-shrink(缩小) flex-basis(分配剩余) 三者的简写形式
 默认值initial = 0 1 auto 
-auto =  1 1 auto;(最常用)
-none = 0 0 auto;
+auto =  1 1 auto; 未满时放大 溢出时缩小 剩余空间自动分配 (最常用)
+none = 0 0 auto;  未满时不放大 溢出时不缩小 剩余空间自动分配
 <style type="text/css"> .flex-test li{ flex: 1 1 auto;} </style>
 <div class="center flex-test"><ul style="display: flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li></ul></div>
 
@@ -140,7 +140,7 @@ none = 0 0 auto;
 
 
 ## 实例
-1.
+### 1.
 <style type="text/css">.column-1, .column-2, .column-8{display: flex;}.column-1 li{flex: 1 1 100%;}.column-2 li{flex: 1 1 50%;}.column-8 li{flex: 1 1 12.5%;}</style>
 <div class="center"><ul class="column-1"><li>西游记</li></ul><ul class="column-2"><li>师徒四人</li><li>妖精</li></ul><ul class="column-8"><li>唐僧</li><li>悟空</li><li>八戒</li><li>老沙</li><li>白骨夫人</li><li>女儿国主</li><li>盘丝大仙</li><li>嫦娥姐姐</li></ul></div><br/>
-2.
+### 2.
