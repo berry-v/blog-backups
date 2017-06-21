@@ -1,66 +1,69 @@
 ---
-title: flex (Flexible Box) 弹性布局
+title: flex (Flexible Box弹性盒模型) 弹性布局 学习之路~
 date: 2017-06-19
 tags: [css, html, 布局]
-type: 技术类
+type: 技术
 ---
 
 布局，其实不用多做解释，只能说真的很重要，不好的布局，看起来真很累呀、累呀、呀~ ~ ~自此回音回荡一万里~ ~ ~ ~
-这些年，最常见的解决方案就是基于盒模型，然后用绝对定位，浮动定位什么的来解决这个问题。
+很长一段时间，最常见的解决方案就是基于盒模型，然后用绝对定位，浮动定位什么的来解决这个问题。
 其实也没什么不好，就是吧，感觉不那么灵活，然后有一些比较特殊的定位，就会超级麻烦~~
 特别是，在改之前已经做好的布局的时候，那叫一个简直了，在此省略吐槽一万字~ ~ ~ 
 
 <!--more-->
 再之后可能是是因为这个问题真的很困扰，就有了本文要讲述的主题 Flex 弹性布局。
-仿佛发现了什么不得了的事情 有木有，我就问有木有~~，这个必须有~
+仿佛发现了什么不得了的事情 有木有，我就问有木有~ ~，这个必须有~
+他可以由开发者自由的定义元素的排列方式, 排列顺序, 元素分布的方向, 通过拉伸缩小以适应容器的大小. 听起来都还有点小激动呢
+对浏览器的支持,也还可以, 如果不是非要兼容某些不常用的老版本浏览器的话,都可以考虑用这个来布局, 简直不能更美好~~
 
-## display
+注: 本文仅为学习记录, 不考虑兼容性, 若需考虑兼容性, 再去查~ ~
+
+## 属性
 <style type="text/css">ul, li { list-style: none !important; padding: 5px; margin: 3px; }.center li { background-color: #bdcfcf; }.center li:nth-child(1) { background-color: #d3e3e6; }.center li:nth-child(2) { background-color: #c8e2de; }.center li:nth-child(3) { background-color: #87a2a0; }.center li:nth-child(4) { background-color: #85a3a0; }.center li:nth-child(5) { background-color: #7da797; }.center li:nth-child(6) { background-color: #cce7ce; }.center li:nth-child(7) { background-color: #a2bfb8; }.center li:nth-child(8) { background-color: #3d3b3b; }.center li:nth-child(9) { background-color: #798f85; }.center li:nth-child(10) { background-color: #c6c1b5; }.center li:nth-child(11) { background-color: #a18d6f; }.center li:nth-child(12) { background-color: #d7eedd; }.center li:nth-child(13) { background-color: #f9f6ec; }.center li:nth-child(14) { background-color: #f7e39d; }.center { text-align: center; color: #fff; border: 1px solid #daf7f2;}</style>
 
-以下,全都是在外层元素加了center的效果
-### display: flex;
+### display: flex; 
 
+声明使用弹性布局
 当元素少的时候,会靠左排列(既是外层元素加了center)
 <div class="center"><ul style="display: flex; "><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
 
-当子元素有很多时,全都会排在一排, 挤在一起~~
-<div class="center"><ul style="display: flex; "><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
-
 ### display: inline-flex;
-
+声明使用弹性布局(内联块级)
 外层元素center之后会居中
 <div class="center"><ul style="display: inline-flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
 
-当子元素有很多时,全都会排在一排, 挤在一起~~
+无论是inline-flex 还是flex 当子容器内元素有很多时,全都会排在一排, 挤在一起, 若是容器本身放不下的话就会超出容器, 若是不设置flex-wrap就不换行~~
 <div class="center"><ul style="display: inline-flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
 
-注意，设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效
+### flex-direction 
+控制内容的显示的方向, 如下:
 
-## 容器的属性
-### flex-direction 控制内容的排列方向, 显示如下:
-
-flex-direction:  row; 横向显示
+flex-direction:  row; 水平排列显示(默认)
 <div class="center"><ul style="display: inline-flex; flex-direction:  row;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
-flex-direction:  row-reverse; 横向倒序显示
+flex-direction:  row-reverse; 水平倒序排列显示
 <div class="center"><ul style="display: inline-flex; flex-direction:  row-reverse;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
-flex-direction:  column; 纵向显示
+flex-direction:  column; 垂直排列显示
 <div class="center"><ul style="display: inline-flex; flex-direction:  column;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li></ul></div>
-flex-direction:  column-reverse; 纵向倒叙显示
+flex-direction:  column-reverse; 垂直倒序排列显示
 <div class="center"><ul style="display: inline-flex; flex-direction:  column-reverse;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li></ul></div>
 
-### flex-wrap 控制内容换行
-flex-wrap: nowrap;  坚决不换行,一直延伸到天际~
+### flex-wrap 
+控制内容是否需要换行, 如下:
+flex-wrap: nowrap;  不换行 (默认, 坚决不换行,一直延伸到天际~)
 <div class="center"><ul style="flex-wrap: nowrap; display: flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
-flex-wrap: wrap; 换行,正序显示~
+flex-wrap: wrap; 换行超出容器部分换行,正序显示
 <div class="center"><ul style="flex-wrap: wrap; display: flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
-flex-wrap: wrap-reverse;  换行,倒叙显示(就连没填满的缺口都显示在第一行)~
+flex-wrap: wrap-reverse;  换行超出容器部分换行,倒序显示(就连没填满的缺口都显示在第一行)~
 <div class="center"><ul style="flex-wrap: wrap-reverse; display: flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
 
 ### flex-flow 
-flex-direction和flex-wrap的合体(默认row nowrap)
-flex-flow: column wrap; 试了一下,意义不大,有使用场景的时候再来补充;
+flex-direction和flex-wrap的合体(默认row nowrap), 如下:
+多个组合, 
+flex-flow: row-reverse wrap-reverse; 
+<div class="center"><ul style="flex-flow: row-reverse wrap-reverse; display: flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
 
-### justify-content 控制对齐方式
+### justify-content 
+控制对齐方式, 如下:
 justify-content: flex-start; 左对齐(默认);
 <div class="center"><ul style=" justify-content: flex-start; display: flex;"><li>白骨夫人</li><li>唐僧骑马咚啦个咚</li><li>盘丝大仙</li></ul></div>
  justify-content: flex-end; 右对齐
@@ -102,10 +105,9 @@ align-content: space-between; 使每列之间的间隔都相等
 align-content: space-around; 上下等分之后,再在每一行的上下居中
 <div class="center align-div" style="align-content: space-around; "><ul><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li></ul><ul><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li></ul><ul><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li></ul></div>
 
-## 项目属性
 ### order
-自动按照设置的值来排列位置
-<div class="center"><ul style="justify-content: space-between;  display: flex;"><li style="order:3">order:3</li><li style="order:2">order:2</li><li style="order:1">order:1</li><li style="order:0"> order:1</li></ul></div>
+自动按照设置的值来排列位置, 数字越小越靠前
+<div class="center"><ul style="justify-content: space-between;  display: flex;"><li style="order:3">order:3</li><li style="order:2">order:2</li><li style="order:1">order:1</li><li style="order:0"> order:0</li></ul></div>
 
 ### flex-grow 
 放大容器中的元素(占用剩余元素, 按照flex-grow数值的多少来按比例分配)
@@ -124,11 +126,21 @@ align-content: space-around; 上下等分之后,再在每一行的上下居中
 <div class="center"><ul style="justify-content: space-between;  display: flex;"><li style="flex-basis: 200px; ">白骨夫人</li><li style="flex-basis: 300px; ">女儿国主</li><li style="flex-basis: 100px; ">盘丝大仙</li><li style="flex-basis: 100px; ">盘丝大仙</li><li style="flex-basis: 100px; ">盘丝大仙</li><li style="flex-basis: 200px; ">白骨夫人</li><li style="flex-basis: 200px; ">白骨夫人</li><li style="flex-basis: 200px; ">白骨夫人</li></ul></div>
 
 ### flex
-flex-grow flex-shrink flex-basis 三者的合体
-默认值0 1 auto 
+flex-grow(放大) flex-shrink(缩小) flex-basis(分配剩余) 三者的简写形式
+默认值initial = 0 1 auto 
+auto =  1 1 auto;(最常用)
+none = 0 0 auto;
+<style type="text/css"> .flex-test li{ flex: 1 1 auto;} </style>
+<div class="center flex-test"><ul style="display: flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li></ul></div>
 
 ### align-self
 可以为某个特定元素设置对齐方式
 默认为auto 表示集成父元素的align-items 如果没有父元素等于stretch
 <div class="center w"><ul style="align-items: flex-start; display: flex;"><li style="font-size: 14px;">白骨夫人, 都是白骨,虽然也是可怜的人儿,是妖怪,可是还是挺漂亮的呀</li><li style="font-size: 15px; align-self: flex-end">align-self: flex-end<br/>女儿国主, 女儿国之主, 说什么王权富贵,怕什么戒律清规~</li><li  style="font-size: 20px; align-self: center;">align-self: center<br/>嫦娥姐姐, 第一美人儿~</li><li style="font-size: 25px; align-self: baseline;">align-self: baseline;<br/>盘丝大仙</li><li>玉兔妹妹, 呆萌呆萌的小兔子</li><li  style="font-size: 18px;  align-self: stretch;">align-self: stretch;<br/>白面狐狸,这个真不知道是哪一集出现的了</li><li  style="font-size: 25px;">侍香,奎木狼守护的女子,侍香下凡后,他追随而下,共同生活了十三年~</li></ul></div>
 
+
+## 实例
+1.
+<style type="text/css">.column-1, .column-2, .column-8{display: flex;}.column-1 li{flex: 1 1 100%;}.column-2 li{flex: 1 1 50%;}.column-8 li{flex: 1 1 12.5%;}</style>
+<div class="center"><ul class="column-1"><li>西游记</li></ul><ul class="column-2"><li>师徒四人</li><li>妖精</li></ul><ul class="column-8"><li>唐僧</li><li>悟空</li><li>八戒</li><li>老沙</li><li>白骨夫人</li><li>女儿国主</li><li>盘丝大仙</li><li>嫦娥姐姐</li></ul></div><br/>
+2.
