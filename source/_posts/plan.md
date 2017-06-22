@@ -11,12 +11,13 @@ fontIcon √
 promise  then()
 js 异步方案 async/await
 css变量和计算(var 和 calc)
-NodeList
+NodeList arguments
 will-change
 http
 transform
 pointer-events
 content attr
+for...in, for each...in, for 
 js 对象Class 继承extends 构造函数 (super在this关键字之前使用,用于调用父对象上的函数)
 Number isInterger() EPSILON() isSafeInteger()
 Math trunc() sign() cbrt() imul() fround() clz32() abs min..
