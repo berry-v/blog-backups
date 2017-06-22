@@ -86,12 +86,12 @@ length: 返回节点个数,
 item:  返回指定节点个数
 	
 
-### 实时\非实时:
+### 动态\非动态:
 Node.childNodes返回的NodeList结果
-一个实时集合, 当节点发生变化时nodeList也会随即发生改变
+一个动态集合, 当节点发生变化时nodeList也会随即发生改变
 document.querySelectorAll返回的NodeList结果
-MDN上描述了, 在多数情况下, NodeList对象是一个实时集合(即文档中的节点树发生变化,那么已经纯在的NodeList对象也可能会变化)
-如Node.childNodes 是实时的
+多数情况下, NodeList对象是一个动态集合(即文档中的节点树发生变化,那么已经纯在的NodeList对象也可能会变化)
+如Node.childNodes, document.getElementsByName()是动态的
 然而在某些情况下NodeList是静态的(即文档中节点树发生变化, 已经纯在的NodeList对象也不会改变)
 如document.querySelectorAll 是静态的
 
