@@ -1,11 +1,17 @@
 ---
-title: 关于对js的Promise的理解
+title: 关于对js的Promise对象的理解
 date: 2017-06-20
 tags: [JavaScript]
 ---
 很多地方遇到过Promise, 但是之前一直都不是很理解. 现针对这个做个记录~
 
 <!--more-->
+也是很忧伤啊, 虽然es6早在2015年都已经正式发布了, 过了这么久,然而还不知道promise, 也真真儿是够了呀, 够了~~~
+
+
+
+
+
 
 
 

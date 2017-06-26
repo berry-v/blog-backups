@@ -9,22 +9,22 @@ tags: [CSS, HTML, 响应式]
 
 <!-- more -->
 ## 使用rem
-### 控制html标签的font-size 需借助js
+### 借助js控制html标签的font-size 
 
-浏览器默认font-size是16px 在html的font-size还没有初始化的时候1rem=16px
+浏览器默认font-size是16px , 在html的font-size还没有初始化的时候1rem=16px
 此时如果要默认是1rem=10px的话就应该是10/16*100%=62.5%(一般定义为62.5%是为了好计算,可以直接除以10就好了)
 在不同浏览器适配的时候,可以改变 &lt;html&gt; 标签的font-size来达到用了rem的内容的变换.
 
-以一个尺寸作为标准,之后可以自行计算
+以一个尺寸作为标准,之后可以自行计算(如基于640设计图)
 >document.documentElement.style.fontSize = 20 * (document.documentElement.clientWidth / 320) + 'px';
 
 宽度/320 既是媒体宽度和设计图的比例(因为一般的设计图是针对320px宽度的大小来制作的设计图(通常有640和750))
-*20是因为1rem=20px 320的基准字体大小是10px的话640就应该是20px
+*20是因为1rem=20px (320的基准字体大小是10px的话640就应该是20px)
 省略之后为
 >document.documentElement.style.fontSize = document.documentElement.clientWidth / 16 + 'px';
 
 ### 用媒体查询(@media)控制html标签的font-size
-除了上诉方法,还可以用媒体查询来控制html的font-size. 为不同阶段的分辨率分别设置html的font-size, 可以完全不用js
+除了上述方法,还可以用媒体查询来控制html的font-size. 为不同阶段的分辨率分别设置html的font-size, 可以完全不用js
 @media的常用语法:
 min/max-device-width/height 整个设备的显示区域
 min/max-width/height 目标(如浏览器/某个应用)显示区域
@@ -59,5 +59,6 @@ scss中自然为
 >$ratio: 40*(750/640);
 @function fun-rem($args) { @return $args/$ratio+rem; }
 
+这样使用的话,就可以直接传入设计的尺寸, 不用自己去计算, 省时省力 ~ ~ ~
 
 
