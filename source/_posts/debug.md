@@ -90,6 +90,6 @@ profileEnd
 timeStamp
 timeline
 timelineEnd
-trace()
+trace
 markTimeline
 memory
