@@ -32,17 +32,14 @@ min/max-width/height 目标(如浏览器/某个应用)显示区域
 @media screen and (min-width: **px) and (max-width: **px) {} //宽度在某两个值之间时
 @media screen and (max-width: **px) {} //宽度小于等于某个值时使用
 
-还有关于
-基本媒体分辨率一览
+<!-- 还有关于
+基本媒体分辨率一览 
 <table>
 	<tr>
 		<td></td>
 	</tr>
 </table>
-
-
-
-
+-->
 ### 可以使用 scss 计算
 (可以选择其他的,怎么方便怎么来,只是说一下实现的方法)
 $ratio等于40是因为,一般的设计是根据320px宽度的大小来制作的640px的设计图

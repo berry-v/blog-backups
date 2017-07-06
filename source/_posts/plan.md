@@ -5,10 +5,12 @@ tags: 备忘录
 ---
 
 <!--more-->
+``es6 模板语言
 flex √
 响应式设计
 fontIcon √
 promise  then()
+阻止事件冒泡的几种方法
 js 异步方案 async/await
 css变量和计算(var 和 calc)
 NodeList arguments
@@ -59,5 +61,8 @@ js中看到但是不是很明白是什么意思的东西
 node 
 node 实现前后端分离实例
 
+
+
+析构函数 react
 
 
