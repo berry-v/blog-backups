@@ -53,6 +53,7 @@ warn : function warn()
 ### dir()
 输出一个JavaScript对象的属性和属性值.
 ### dirxml()
+显示网页某个节点(node)包含的html或者xml代码
 ### error();
 输出一条错误消息, 参数可不固定, 多个会相加
 ### group
@@ -78,18 +79,43 @@ console.log('一');
 ### table
 把数据以表格的形式输出(输出集合表格信息的时候简直完美)
 ### time()
-启动一个定时器, 可以用来标示开始时间, 然后计算出一个操作占用的时长, 和timeEnd()配合使用, 当使用当前参数书调用timeEnd()时, 输出他们的毫秒差值(即计时器所记时间)
+启动一个定时器, 可以用来标示开始时间, 然后计算出代码运行占用的时长, 和timeEnd()配合使用, 当使用当前参数书调用timeEnd()时, 输出他们的毫秒差值(即计时器所记时间)
 ### timeEnd()
 配合time()使用
 ### warn()
 输出一条警告信息
+### trace()
+用来追踪函数的调用轨迹, 可很明确的表示出当前方法是由哪些方法调用的, 追踪到最开始调用的方法
+此方法个人觉得非常有用, 当函数与函数之间调用非常复杂, 然后你又找不到具体是哪些在调用的时候, 可以一目了然, 非常清晰.(虽然在调试模式下的调用栈里边也可以全都显示出来, 看个人习惯)
+>如
+function method1(){method2();}
+function method2(){method3();}
+function method3(){method4();}
+function method4(){console.trace();}
+method1();
+
+### profile()
+性能分析, 分析各个函数运行的时间, 结束用profileEnd()
+运行时会在调试模式(chrome-profiles, firefox-性能)中显示当前运行的信息
+>如
+console.profile('性能分析');
+method();
+console.profileEnd();
+
+### profileEnd()
+配合profile()使用
 
 以下,  还未察觉具体应用场景(有具体应用了之后再补充):
-profile
-profileEnd
 timeStamp
 timeline
 timelineEnd
-trace
 markTimeline
 memory
+
+### console中的占位符
+可使用占位符, 在某些特定情况下还是有用的
+整数(%d或%i), 字符(%s), 浮点数(%f), 对象(%o)
+>如
+console.log('%d年%d月%d日', 2017, 06, 26);
+console.log('%s你怎么长得这么好看咧', '阿萌 '); 
+
