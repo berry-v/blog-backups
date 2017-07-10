@@ -50,33 +50,35 @@ tags: [小技巧, CSS]
 ### 此处有小技巧
 
 当我们在使用字体图标的时候一般的用法是
->@font-face {
- font-family: “icon”;
- src: url(‘./icon.eot?t=1495901382263’); / IE9/
- src: url(‘./icon.eot?t=1495901382263#iefix’) format(‘embedded-opentype’), / IE6-IE8 /
- url(‘./icon.woff?t=1495901382263’) format(‘woff’), / chrome, firefox /
- url(‘./icon.ttf?t=1495901382263’) format(‘truetype’), / chrome, firefox, opera, Safari, Android, iOS 4.2+/
- url(‘./icon.svg?t=1495901382263#icon’) format(‘svg’); / iOS 4.1- /
+```python
+@font-face {
+	font-family: “icon”;
+	src: url(‘./icon.eot?t=1495901382263’); / IE9/
+	src: url(‘./icon.eot?t=1495901382263#iefix’) format(‘embedded-opentype’), / IE6-IE8 /
+	url(‘./icon.woff?t=1495901382263’) format(‘woff’), / chrome, firefox /
+	url(‘./icon.ttf?t=1495901382263’) format(‘truetype’), / chrome, firefox, opera, Safari, Android, iOS 4.2+/
+	url(‘./icon.svg?t=1495901382263#icon’) format(‘svg’); / iOS 4.1- /
 }
 .icon {
- font-family:”icon” !important;
- font-size:16px;
- font-style:normal;
- -webkit-font-smoothing: antialiased;
- -moz-osx-font-smoothing: grayscale;
+	font-family:”icon” !important;
+	font-size:16px;
+	font-style:normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
-
+```
 为每个图标创建一个class
 很长一段时间是这么用的，应该也是最常用的方式吧，至少现在看到的更多的都是这么做的
->&lt;ul&gt;
-	&nbsp;&lt;li&gt;&lt;i class=”icon icon-length”&gt;&lt;/i&gt;&lt;/li&gt;
-	&nbsp;&lt;li&gt;&lt;i class=”icon icon-arrow-right”&gt;&lt;/i&gt;&lt;/li&gt;
-	&nbsp;&lt;li&gt;&lt;i class=”icon icon-area”&gt;&lt;/i&gt;&lt;/li&gt;
-	&nbsp;&lt;li&gt;&lt;i class=”icon icon-volume”&gt;&lt;/i&gt;&lt;/li&gt;
-	&nbsp;&lt;li&gt;&lt;i class=”icon icon-weight”&gt;&lt;/i&gt;&lt;/li&gt;
-	&nbsp;&lt;li&gt;&lt;i class=”icon icon-temperature”&gt;&lt;/i&gt;&lt;/li&gt;
-	&nbsp;&lt;li&gt;&lt;i class=”icon icon-speed”&gt;&lt;/i&gt;&lt;/li&gt;
-&lt;/ul&gt;
+```python
+<ul>
+	 <li><i class=”icon icon-length”></i></li>
+	 <li><i class=”icon icon-arrow-right”></i></li>
+	 <li><i class=”icon icon-area”></i></li>
+	 <li><i class=”icon icon-volume”></i></li>
+	 <li><i class=”icon icon-weight”></i></li>
+	 <li><i class=”icon icon-temperature”></i></li>
+	 <li><i class=”icon icon-speed”></i></li>
+</ul>
 .icon-length:before { content: “\e601”; }
 .icon-arrow-right:before { content: “\e602”; }
 .icon-area:before { content: “\e603”; }
@@ -84,22 +86,23 @@ tags: [小技巧, CSS]
 .icon-weight:before { content: “\e605”; }
 .icon-temperature:before { content: “\e606”; }
 .icon-speed:before { content: “\e608”; }
-
+```
 使用 data- 属性来嵌入自定义数据*
 后来发现还可以这样用，简直觉得神奇有木有，当有很多个图标的时候，这样写感觉会清新很多啊
->&lt;ul&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe601;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe602;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe603;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe604;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe605;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe606;”&gt;&lt;/i&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;i class=”icon” data-icon=”&amp;#xe608;”&gt;&lt;/i&gt;&lt;/li&gt;
-&lt;/ul&gt;
- [data-icon] :before{
-&nbsp;content: attr(data-icon);
+```python
+<ul>
+	<li><i class=”icon” data-icon=”&#xe601;”></i></li>
+	<li><i class=”icon” data-icon=”&#xe602;”></i></li>
+	<li><i class=”icon” data-icon=”&#xe603;”></i></li>
+	<li><i class=”icon” data-icon=”&#xe604;”></i></li>
+	<li><i class=”icon” data-icon=”&#xe605;”></i></li>
+	<li><i class=”icon” data-icon=”&#xe606;”></i></li>
+	<li><i class=”icon” data-icon=”&#xe608;”></i></li>
+</ul>
+[data-icon] :before{
+ 	content: attr(data-icon);
 }
-
+```
 最后,一排图标飘过~ ~ ~
 
 <style type="text/css">@font-face{font-family:"icon";src:url('../assets/fonts/mengmengda/icon.eot');src:url('../assets/fonts/mengmengda/icon.eot#iefix') format('embedded-opentype'),url('../assets/fonts/mengmengda/icon.woff') format('woff'),url('../assets/fonts/mengmengda/icon.ttf') format('truetype'),url('../assets/fonts/mengmengda/icon.svg#icon') format('svg');}.icon_lists li{font-family:"icon"!important;font-size:30px;font-style:normal;-webkit-font-smoothing:antialiased;-webkit-text-stroke-width:0.2px;-moz-osx-font-smoothing:grayscale;list-style:none !important; display: inline-block;}.icon_lists li:before{content:attr(data-icon);}</style>

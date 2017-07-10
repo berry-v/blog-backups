@@ -56,31 +56,37 @@ tags: [JavaScript]
 
 ### 遍历NodeList
 如果我们想要遍历一个NodeList对象的话, 可以循环它的长度, 再根据长度去取值.
-for(var i = 0; i< nodeList.length; i++){......}
+```python
+for(var i = 0; i< nodeList.length; i++){
+	......
+}
+```
 不能使用for...in或者for each ...in 因为他会去遍历当前对象的方法
 如下:
->&lt;ul id="ul-test"&gt;
-&nbsp;&nbsp; &lt;li class="li-1"&gt;&lt;/li&gt;
-&nbsp;&nbsp; &lt;li id="li-2"&gt;&lt;/li&gt;
-&nbsp;&nbsp; &lt;li&gt;&lt;/li&gt;
-&nbsp;&nbsp; &lt;li&gt;&lt;/li&gt;
-&nbsp;&nbsp; &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-var result = ''; 
-for(var i in document.querySelectorAll("#ul-test li")) {
-&nbsp;&nbsp; result = result + i + ', ';
+```python
+<ul id=”ul-test”>
+	<li class=”li-1”></li>
+	<li id=”li-2”></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+var result = ‘’;
+for(var i in document.querySelectorAll(“#ul-test li”)) {
+	result = result + i + ‘, ‘;
 }
 console.log(result);
-
+```
 结果是 0, 1, 2, 3, 4, length, item, keys, values, entries, forEach
 
 ### 出现NodeList对象的场景. 
 使用如下方法后返回的子节点列表~ ~
+```python
 	Node.childNodes
 	document.querySelectorAll()
 	document.getElementsByName()
 	...
-
+```
 ### NodeList对象的方法:
 length: 返回节点个数,
 item:  返回指定节点个数
@@ -98,7 +104,11 @@ document.querySelectorAll返回的NodeList结果
 ### 像数组一样使用
 如果在某些场景下需要像使用数组的一样去使用NodeList
 ##### 使用call
+```python
 var arr = Array.prototype.slice.call(NodeList);// IE 问题
+```
 arr既是一个array类型的数组, 此时就可以使用array的方法
 ##### es6
+```python
 var arr = Array.from(NodeList)
+```

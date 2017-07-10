@@ -14,8 +14,9 @@ tags: [js, 调试]
 其实我觉得这都是空话, 啥时候都可以用. 有人会觉得不如直接在浏览器上打断点, 但是有些情况呢, 他还是很实用的,具体情况具体取舍嘛.
 
 ## console(window上的对象, 用于开发环境中)
+```python
 对象原型如下:
->assert : function assert()
+assert : function assert()
 clear : function clear()
 count : function count()
 debug : function debug()
@@ -39,6 +40,7 @@ timeline : function timeline()
 timelineEnd : function timelineEnd()
 trace : function trace()
 warn : function warn()
+```
 
 ### log()
 在我看来是最常用的了, 在我调试的时候, debugger和console.log()是我最常用的东西.
@@ -58,7 +60,7 @@ warn : function warn()
 输出一条错误消息, 参数可不固定, 多个会相加
 ### group
 打印树状结构(把所有打印的信息按照树状图的形式展示出来)，会以groupEnd结束; 
->如
+```python
 console.log('一');
 console.group();
 console.log('二');
@@ -69,7 +71,7 @@ console.groupEnd();
 console.log('二');
 console.groupEnd();
 console.log('一');
-
+```
 ### groupCollapsed
 和group用发现同, 所有打印的信息是折叠显示的
 ### groupEnd
@@ -87,20 +89,22 @@ console.log('一');
 ### trace()
 用来追踪函数的调用轨迹, 可很明确的表示出当前方法是由哪些方法调用的, 追踪到最开始调用的方法
 此方法个人觉得非常有用, 当函数与函数之间调用非常复杂, 然后你又找不到具体是哪些在调用的时候, 可以一目了然, 非常清晰.(虽然在调试模式下的调用栈里边也可以全都显示出来, 看个人习惯)
->如
+```python
 function method1(){method2();}
 function method2(){method3();}
 function method3(){method4();}
 function method4(){console.trace();}
 method1();
+```
 
 ### profile()
 性能分析, 分析各个函数运行的时间, 结束用profileEnd()
 运行时会在调试模式(chrome-profiles, firefox-性能)中显示当前运行的信息
->如
+```python
 console.profile('性能分析');
 method();
 console.profileEnd();
+```
 
 ### profileEnd()
 配合profile()使用
@@ -115,7 +119,8 @@ memory
 ### console中的占位符
 可使用占位符, 在某些特定情况下还是有用的
 整数(%d或%i), 字符(%s), 浮点数(%f), 对象(%o)
->如
+```python
 console.log('%d年%d月%d日', 2017, 06, 26);
 console.log('%s你怎么长得这么好看咧', '阿萌 '); 
+```
 

@@ -14,41 +14,41 @@ tags: [JS, ES6]
 比如 \`${name} 长得真好看\`
 
 ## 使用表达式
-可以在字符中直接使用表达式
->如
+可以在字符中直接使用表达式 看起来比+运算符来得更美腻和优雅
+如
+```python
 var name = '陆小果';
 var tag = '我的字典里没有投降两字，因为，因为，我的字典里什么字都没有！';
 //字符拼接
 console.log('果宝特攻中' + name + '的口头禅是:' + tag);
 //模板字符串
-console.log(\`果宝特攻中${name}的口头禅是:${tag}\`);
+console.log(`果宝特攻中${name}的口头禅是:${tag}`);
+```
 
+## 标签模板
+在模板字符串开始之前加一个额外的标签(这个标签只是一个函数, 通过这个函数的函数名来处理操作这个模板字符)
+```python
+function template(strings, ...keys){
+	return (function(...values){
+		var dict = values[values.length - 1] || {};
+		var _h = '';
+		keys.forEach(function(k, i){
+			_h += `${strings[i]}${dict[k]}</br>`;
+		});
+		return _h;
+	});
+}
+var personal = {
+	name: '陆小果',
+	age: '18',
+	noumenon: '苹果',
+	fear: '小伙伴被做成苹果派',
+	tag: '我的字典里没有投降两字，因为，因为，我的字典里什么字都没有！'
+};
+var formatInf = template `姓名: ${'name'} 年龄: ${'age'} 原型: ${'noumenon'} 最害怕的事: ${'fear'} 口头禅: ${'tag'}`;
+formatInf(personal);
+//姓名: 陆小果</br> 年龄: 18</br> 原型: 苹果</br> 最害怕的事: 小伙伴被做成苹果派</br> 口头禅: 我的字典里没有投降两字，因为，因为，我的字典里什么字都没有！</br>
+```
 
-
-		function template(strings, ...keys){
-			console.log(strings);
-			console.log(keys);
-			return function(...values){
-				console.log(values);
-			}
-
-
-		}
-		var peo = {
-			name: '陆小果',
-			age: '18',
-			noumenon: '苹果',
-			fear: '小伙伴被做成苹果派',
-			tag: '我的字典里没有投降两字，因为，因为，我的字典里什么字都没有！'
-		}
-
-		template `姓名: ${peo.name}, 年龄: ${peo.age}, 原型: ${peo.noumenon}, 最害怕的事: ${peo.fear}, 口头禅: ${peo.tag}`;
-
-
-
-
-
-
-
-
-
+## 实用层度 (例子总结)
+有让人眼前一亮的写法的时候再更新...
