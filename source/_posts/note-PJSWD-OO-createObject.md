@@ -1,10 +1,10 @@
 ---
 title: JavaScript 面向对象之创建对象
 date: 2018-04-16 16:52:18
-tags:
+tags: [JavaScript, 面向对象]
 ---
 
-阅读 Professional JavaScript for Web Developers 所做的的笔记
+阅读 Professional JavaScript for Web Developers 所做的笔记
 最近一直在阅读JavaScript高级程序设计（第三版）
 正好， 现在阅读到比较重要的面向对象的程序设计， 对此做一个阅读笔记， 一是为了加深印想， 二是为了抓一个重点
 <!-- more -->
@@ -127,6 +127,7 @@ let person1 = new Person('梨花诗', 18, '剑客');
 ES6 引入了类（class）的概念， 可以通过class关键字来定义类。
 这个类的存在， 多被认为是一个ES5的 组合使用构造函数模式和原型模式 的一个语法糖， 示例如下
 但class定义的类中的方法的enumerable属性是false, 都是不能被枚举的。
+用static关键字可以定义一个类的一个静态方法， 调用静态方法不需要实例化该类， 但不能通过一个类实例调用静态方法。通常静态方法用于为一个应用程序创建工具函数
 ```python
 class Person{
   constructor(name, age, job){
@@ -136,6 +137,10 @@ class Person{
   }
   sayName(){
     console.log(this.name);
+    Person.logAge(this.age);
+  }
+  static logAge(age){
+    console.log(age);
   }
 }
 let person1 = new Person('风清扬方丈', 92, '武术师傅');
