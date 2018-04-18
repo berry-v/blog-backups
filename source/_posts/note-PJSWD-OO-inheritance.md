@@ -145,24 +145,3 @@ class Dog extends Animal{
 
 let corgi = new Dog('柯基', 4);
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-end
