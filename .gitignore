@@ -7,5 +7,3 @@ public/
 .deploy*/
 themes/*
 !themes/next/
-themes/next/*
-!themes/next/_config.yml
