@@ -1,23 +1,24 @@
 ---
 title: js 中可优化的代码片段
-date: 2019-06-03 10:03:42
+date: 2019-05-04 10:03:42
 tags: [js, 优化]
 ---
 
 你有没有见过这样的代码
 
 ```javascript
-if (attributes.slot !== 'default') {
-    attributes.slot = {
+if (type !== 'default') {
+    slot = {
         type: 'text',
-        value: attributes.slot
+        value: 'gulugulugulu~~~~'
     }
 } else {
-    attributes.slot = {
+    slot = {
         type: 'text',
         value: ''
     }
 }
+
 ```
 
 <!-- more -->
@@ -35,19 +36,14 @@ if (nodeList[i].className === 'topLeft') {
 } else if (nodeList[i].className === 'middleRight') {
 } else {
 }
+
 ```
 
 这样的代码
 
 ```javascript
-if (
-    param === 1 ||
-    param === 2 ||
-    param === 3 ||
-    param === 'a' ||
-    param === 'b'
-) {
-}
+if ( param === 1 || param === 2 || param === 3 || param === 'a' || param === 'b' ) {}
+
 ```
 
 我们在编写 js 代码的时候， 可能在很多时候就是写出来的代码， 实现了他的功能然后测一下没问题之后就没有然后了， 但是有时候我们是可以对代码本身做一些优化的，这可能是很小的一些问题， 但是也是很容易被忽略的一些问题。
@@ -73,6 +69,7 @@ if (!isEdit) {
 //---------------------------
 
 return isEdit && type === 'stars'
+
 ```
 
 用三元运算符代替简单的, 虽然这个大家都知道， 但是代码中还是很多这种代码， 可以稍微注意一下
@@ -95,16 +92,7 @@ attributes.slot = {
     type: 'text',
     value: attributes.slot === 'default' ? '' : attributes.slot
 }
-```
 
-```javascript
-if (oldStr === newStr) {
-    return true
-} else {
-    return false
-}
-//---------------------------
-return oldStr === newStr
 ```
 
 ## 多个 if... else if...
@@ -149,6 +137,7 @@ if (nodeList[i].className === 'topLeft') {
         _this.onDragDown(e, 'default')
     }
 }
+
 ```
 
 在上边这段代码中， 很多 else if, 根据不同的 class 名称， 传不同参数调用同一个方法
@@ -201,6 +190,7 @@ switch (nodeList[i].className) {
             _this.onDragDown(e, 'default')
         }
 }
+
 ```
 
 利用 Object
@@ -217,8 +207,10 @@ const classNames = {
     middleLeft: 'w',
     middleRight: 's'
 }
-nodeList[i].onmousedown = e =>
+nodeList[i].onmousedown = e => {
     _this.onDragDown(e, classNames[nodeList[i].className] || 'default')
+}
+
 ```
 
 用 Map
@@ -236,6 +228,7 @@ const classNames = new Map([
 ])
 nodeList[i].onmousedown = e =>
     _this.onDragDown(e, classNames.get('middleLeft') || 'default')
+
 ```
 
 用 Map 对象和 Object 对象有什么区别呢?
@@ -249,31 +242,21 @@ nodeList[i].onmousedown = e =>
 可以利用数组来和数组自带的方法来处理这种情况
 
 ```javascript
-if (
-    param === 1 ||
-    param === 2 ||
-    param === 3 ||
-    param === 'a' ||
-    param === 'b'
-) {
-}
+if ( param === 1 || param === 2 || param === 3 || param === 'a' || param === 'b') {}
+
 // -------------------------------
-if ([1, 2, 3, 'a', 'b', 'c'].includes(param)) {
-}
+
+if ([1, 2, 3, 'a', 'b', 'c'].includes(param)) {}
+
 ```
 
 ```javascript
-if (
-    param !== 1 &&
-    param !== 2 &&
-    param !== 3 &&
-    param !== 'a' &&
-    param !== 'b'
-) {
-}
+if ( param !== 1 && param !== 2 && param !== 3 && param !== 'a' && param !== 'b') {}
+
 // -------------------------------
-if (![1, 2, 3, 'a', 'b', 'c'].includes(param)) {
-}
+
+if (![1, 2, 3, 'a', 'b', 'c'].includes(param)) {}
+
 ```
 
 # 利用数据和符号， 在可读范围内
@@ -282,11 +265,12 @@ if (![1, 2, 3, 'a', 'b', 'c'].includes(param)) {
 比如 !除了做逻辑运算之外还可以用于取得一个布尔值， 举个例子， 在我们现在是用的 iview 的源码中， 就很多关于!!的使用， 原理就是!!可以把数据转换为布尔类型， 然后用于判断
 
 ```javascript
-if (value === '' || value === 0 || value === null || value === undefined) {
-}
+if (value === '' || value === 0 || value === null || value === undefined) { }
+
 // -----------------------
-if (!value) {
-}
+
+if (!value) { }
+
 ```
 
 ```javascript
@@ -302,12 +286,14 @@ classes () {
         }
     ];
 },
+
 ```
 
 &&
 
 ```javascript
 type === 'drag' && dragOver()
+
 ```
 
 当然， 其他符号也有自己不同的作用， 也可以根据情况使用， 但是一定要保持在可读范围内
@@ -329,6 +315,7 @@ type === 'drag' && dragOver()
 Object.keys(objParam).forEach(key => {
     console.log(objParam[key])
 })
+
 ```
 
 # 尽可能的使用内置方法
@@ -351,11 +338,10 @@ for (let i = 0; i < arr1.length; i++) {
 
 // ---------------------------
 const arr1 = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4]
-const arr2 = arr1.filter(
-    (element, index, self) => self.indexOf(element) === index
-)
+const arr2 = arr1.filter( (element, index, self) => self.indexOf(element) === index )
 // arr2  [1, 2, 3, 5, 4]
 // arr1  [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4]
+
 ```
 
 现在有一个数组 [0, 1, 2, 3, 4]，需要计算数组元素的和
@@ -367,11 +353,11 @@ for (let i = 0; i < arr.length; i++) {
     sum += arr[i]
 }
 
-//-------------------------
+//------------------------- 
+
 const arr = [0, 1, 2, 3, 4]
-let sum = arr.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue
-})
+let sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue)
+
 ```
 
 拷贝数组
@@ -379,6 +365,7 @@ let sum = arr.reduce((accumulator, currentValue) => {
 ```javascript
 let arr = [1, 2, 3, 4, 5]
 let arrCopy = arr.slice()
+
 ```
 
 # 思考题
