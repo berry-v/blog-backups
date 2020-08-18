@@ -50,7 +50,7 @@ tags: [小技巧, CSS]
 ### 此处有小技巧
 
 当我们在使用字体图标的时候一般的用法是
-```python
+```css
 @font-face {
 	font-family: “icon”;
 	src: url(‘./icon.eot?t=1495901382263’); / IE9/
@@ -69,7 +69,7 @@ tags: [小技巧, CSS]
 ```
 为每个图标创建一个class
 很长一段时间是这么用的，应该也是最常用的方式吧，至少现在看到的更多的都是这么做的
-```python
+```html
 <ul>
 	 <li><i class=”icon icon-length”></i></li>
 	 <li><i class=”icon icon-arrow-right”></i></li>
@@ -89,7 +89,7 @@ tags: [小技巧, CSS]
 ```
 使用 data- 属性来嵌入自定义数据*
 后来发现还可以这样用，简直觉得神奇有木有，当有很多个图标的时候，这样写感觉会清新很多啊
-```python
+```html
 <ul>
 	<li><i class=”icon” data-icon=”&#xe601;”></i></li>
 	<li><i class=”icon” data-icon=”&#xe602;”></i></li>

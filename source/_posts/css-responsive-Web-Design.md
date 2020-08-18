@@ -16,13 +16,13 @@ tags: [CSS, HTML, 响应式]
 在不同浏览器适配的时候,可以改变 &lt;html&gt; 标签的font-size来达到用了rem的内容的变换.
 
 以一个尺寸作为标准,之后可以自行计算(如基于640设计图)
-```python
+```JavaScript
 document.documentElement.style.fontSize = 20 * (document.documentElement.clientWidth / 320) + 'px';
 ```
 宽度/320 既是媒体宽度和设计图的比例(因为一般的设计图是针对320px宽度的大小来制作的设计图(通常有640和750))
 *20是因为1rem=20px (320的基准字体大小是10px的话640就应该是20px)
 省略之后为
-```python
+```JavaScript
 document.documentElement.style.fontSize = document.documentElement.clientWidth / 16 + 'px';
 ```
 ### 用媒体查询(@media)控制html标签的font-size
@@ -30,7 +30,7 @@ document.documentElement.style.fontSize = document.documentElement.clientWidth /
 @media的常用语法:
 min/max-device-width/height 整个设备的显示区域
 min/max-width/height 目标(如浏览器/某个应用)显示区域
-```python
+```css
 @media screen and (min-width: **px) {} //宽度大于等于某个值时使用
 @media screen and (min-width: **px) and (max-width: **px) {} //宽度在某两个值之间时
 @media screen and (max-width: **px) {} //宽度小于等于某个值时使用
@@ -52,13 +52,13 @@ $ratio等于40是因为,一般的设计是根据320px宽度的大小来制作的
 所以,当我们在计算640设计图时需要再除以二结果就是 X/20/2=X/40
 
 scss中自然为
-```python
+```css
 $ratio: 40;
 @function fun-rem($args) { @return $args/$ratio+rem; }
 ```
 
 同理,如果设计图是750的话
-```python
+```css
 $ratio: 40*(750/640);
 @function fun-rem($args) { @return $args/$ratio+rem; }
 ```
@@ -73,7 +73,7 @@ $ratio: 40*(750/640);
 所以， 需要用另外的方法来实现文字大小的改变。这个时候就需要用到媒体查询了。
 
 假如我们的设计图是1920的大小。我们就把1920当成原始的点， 比例为1， 以此计算。把每个段的最小值用来除以1920 得到一个比例， 按照这个比例在使用LESS 或者SASS， 可以很轻易的坐到自适应。
-```python
+```css
 //如果设计图大小为1920
 //<1024 约等于0.533
 @media (max-width: 1023px) {

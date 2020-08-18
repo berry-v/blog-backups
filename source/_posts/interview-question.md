@@ -315,6 +315,10 @@ onerror
 object.onerror=()=>{myScript};
 ```
 
+1. **js 函数节流**
+
+    >
+
 ---
 
 ### JS 场景

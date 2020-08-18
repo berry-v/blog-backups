@@ -10,7 +10,7 @@ tags: [JavaScript, 面向对象]
 ## 一、原型链
 原型链基本思想是利用原型让一个引用类型继承另一个引用类型的属性和方法。
 构造函数、原型、实例之间的关系： 每个构造函数都有一个原型对象， 原型对象都包含一个指向构造函数的指针， 而实例都包含一个指向原型对象的内部指针。
-```python
+```javascript
 function SuperType(){
   this.property = true;
 }
@@ -29,7 +29,7 @@ SubType.prototype.getSubValue = function(){
 var instance = new SubType();
 ```
 弊端： 如果原型中包含引用类型（例如Array）, 那么在通过原型来实现继承时，原型对象中的实例属性在被继承后变成了现在的原型属性。由于包含引用类型值的原型属性会被所有实例共享，那么引用类型（例如Array）也会被实例共享。就会出现一个实例中修改了属性， 另一个实例中访问属性就变成了修改后的的情况。
-```python
+```javascript
 function SuperType(){
   this.colors = ['red', 'blue', 'green'];
 }
@@ -49,7 +49,7 @@ console.log(instance2.colors); //["red", "blue", "green", "black"]
 为解决原型中包含引用类型所带来的问题
 思想： 在子类构造函数的内部调用超类型的构造函数
 如下例， 实际上是在新创建的SubType实例环境下调用了SuperType构造函数， 这样就会在新的SubType对象上执行SuperType()函数中定义的所有对象初始化代码。
-```python
+```javascript
 function SuperType(){
   this.colors = ['red', 'blue', 'green'];
 }
@@ -68,7 +68,7 @@ console.log(instance2.colors); //["red", "blue", "green"]
 
 ## 三、 组合式继承 （伪经典继承） （最常用）
 将原型链和借用构造函数组合到一起， 集两者之长
-```python
+```javascript
 
 function SuperType(name){
   this.name = name;
@@ -103,7 +103,7 @@ instance2.sayAge(); //18
 ## 四、原型式继承
 借助于原型可以给予已有的对象创建新对象， 同时还不必因此创建自定义类型
 可用Object.create()方法来实现
-```python
+```javascript
 var person = {
   name: '菠萝吹雪',
   friends: ['橙留香', '陆小果', '菠萝小薇']
@@ -124,7 +124,7 @@ console.log(person2.friends); //["橙留香", "陆小果", "菠萝小薇", "梨�
 用class关键字来定义的类， 需要用extends来继承， 在类声明或表达式中创建一个类作为另一个类的子类
 可以再constructor中调用super调用超类
 
-```python
+```javascript
 class Animal{
   constructor(name){
     this.name = name;

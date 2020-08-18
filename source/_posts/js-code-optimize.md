@@ -75,22 +75,23 @@ return isEdit && type === 'stars'
 用三元运算符代替简单的, 虽然这个大家都知道， 但是代码中还是很多这种代码， 可以稍微注意一下
 
 ```javascript
-if (attributes.slot !== 'default') {
-    attributes.slot = {
+if (type !== 'default') {
+    slot = {
         type: 'text',
-        value: attributes.slot
+        value: 'gulugulugulu~~~~'
     }
 } else {
-    attributes.slot = {
+    slot = {
         type: 'text',
         value: ''
     }
 }
 
+
 //---------------------------
-attributes.slot = {
+slot = {
     type: 'text',
-    value: attributes.slot === 'default' ? '' : attributes.slot
+    value: type === 'default' ? '' : attributes.slot
 }
 
 ```
@@ -209,6 +210,55 @@ const classNames = {
 }
 nodeList[i].onmousedown = e => {
     _this.onDragDown(e, classNames[nodeList[i].className] || 'default')
+}
+
+```
+
+以下是vue源码中存在的这样的代码片段， 先定义了两个对象， 最后再从这里边去获取相应的值
+```javascript
+const keyCodes: { [key: string]: number | Array<number> } = {
+  esc: 27,
+  tab: 9,
+  enter: 13,
+  space: 32,
+  up: 38,
+  left: 37,
+  right: 39,
+  down: 40,
+  delete: [8, 46]
+}
+
+const keyNames: { [key: string]: string | Array<string> } = {
+  // #7880: IE11 and Edge use `Esc` for Escape key name.
+  esc: ['Esc', 'Escape'],
+  tab: 'Tab',
+  enter: 'Enter',
+  // #9112: IE11 uses `Spacebar` for Space key name.
+  space: [' ', 'Spacebar'],
+  // #7806: IE11 uses key names without `Arrow` prefix for arrow keys.
+  up: ['Up', 'ArrowUp'],
+  left: ['Left', 'ArrowLeft'],
+  right: ['Right', 'ArrowRight'],
+  down: ['Down', 'ArrowDown'],
+  // #9112: IE11 uses `Del` for Delete key name.
+  'delete': ['Backspace', 'Delete', 'Del']
+}
+
+function genFilterCode (key: string): string {
+  const keyVal = parseInt(key, 10)
+  if (keyVal) {
+    return `$event.keyCode!==${keyVal}`
+  }
+  const keyCode = keyCodes[key]
+  const keyName = keyNames[key]
+  return (
+    `_k($event.keyCode,` +
+    `${JSON.stringify(key)},` +
+    `${JSON.stringify(keyCode)},` +
+    `$event.key,` +
+    `${JSON.stringify(keyName)}` +
+    `)`
+  )
 }
 
 ```

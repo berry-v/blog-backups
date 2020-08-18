@@ -8,14 +8,14 @@ tags: [css, 布局]
 
 <!-- more -->
 一、有俩div， 左边固定宽度， 右边自适应
-```python
+```html
 <div class="content">
   <div class="left">Left</div>
   <div class="right">Right</div>
 </div>
 ```
 flex
-```python
+```css
 .content{
   display: flex;
   height: 100%;
@@ -29,7 +29,7 @@ flex
 }
 ```
 float
-```python
+```css
 .left{
   float: left;
   width: 200px;
@@ -40,7 +40,7 @@ float
 }
 ```
 position
-```python
+```css
 .left{
   position: absolute;
   width: 200px;
@@ -53,13 +53,13 @@ position
 ```
 
 二、有一div， 水平垂直居中
-```python
+```html
   <div class="content">
     <div class="center">Center</div>
   </div>
 ```
 display:flex
-```python
+```css
 .content{
   display:flex;
   justify-content:center;
@@ -71,7 +71,7 @@ display:flex
 }
 ```
 position: absolute
-```python
+```css
 .content{
   position: relative;
   height: 100%;
@@ -84,7 +84,7 @@ position: absolute
   border: 1px solid #999;
 }
 ```
-```python
+```css
 .content{
   position: relative;
   height: 100%;
@@ -99,7 +99,7 @@ position: absolute
   height: 100px;
 }
 ```
-```python
+```css
 .content{
   position: relative;
   height: 100%;
@@ -118,7 +118,7 @@ position: absolute
 ```
 同position:absolute一样， position:relative也同样可以使元素居中， 且有多种方法
 思路基本同position:absolute一样， 比如：
-```python
+```css
 .content{
   height: 100%;
 }

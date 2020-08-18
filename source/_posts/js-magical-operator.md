@@ -19,7 +19,7 @@ tags: [小技巧, JavaScript]
 
 且 十进制转换为二进制后， 末位数为1即奇数， 末位数为0即偶数。
 所以可以用一个数和1进行按位&来判断是否为偶数
-```python
+```javaScript
 function assert(n) {
   return n&1 ? '奇数' : '偶数';
 }
@@ -31,7 +31,7 @@ function assert(n) {
 
 由于浮点数不支持位运算， 所以自动转换为整数， 再进行运算。 
 因为这个特性， 可以取巧， 用来做向下运算（math.floor）
-```python
+```javaScript
 console.log(1.23|0); //1
 ```
 <!-- ## ~ 按位非
@@ -46,7 +46,7 @@ console.log(1.23|0); //1
 
 ### 用例
 #### && 用于简短的判断 
-```python
+```javaScript
   let name = document.getElementById('name');
   name && clearValue(name); // 条件为真 方法执行
   function clearValue(input){
@@ -63,7 +63,7 @@ var num = num || 0;
 
 ## || & &&
 ### 简化switch
-```python
+```javaScript
   let condition = Math.ceil(Math.random()*5), color;
   switch (condition) {
     case 0:
@@ -84,12 +84,12 @@ var num = num || 0;
   }
 ```
 等于
-```python
+```javaScript
   let condition = Math.ceil(Math.random()*5);
   let color = (condition==0 &&  '红艳艳') || (condition==1 &&  '黑乎乎') || (condition==2 &&  '黄灿灿') || (condition==3 &&  '绿油油') || '五颜六色';
 ```
 等于
-```python
+```javaScript
   let condition = Math.ceil(Math.random()*5);
   let color = {'0': '红艳艳', '1': '黑乎乎', '2': '黄灿灿', '3': '绿油油'}[condition] || '五颜六色';
 ```

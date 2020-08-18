@@ -12,7 +12,7 @@ tags: [JavaScript, 面向对象]
 ## 一、工厂模式
 ES中无法创建类， 所以创建一个函数来封装以特定接口创建对象的细节
 缺点： 无法知道一个对象的类型
-```python
+```javascript
 function person(name, age, job){
   let o = new Object();
   o.name = name;
@@ -35,7 +35,7 @@ ES中构造函数可以用来创建特定类型的对象
 而任何函数， 如果不通过new操作符来调用， 那他跟普通函数也不会有什么两样；
 创建自定义的构造函数意味着将来可以将他的实例标识为一种特定的类型；（如下例子中， person1是Person类型的）
 缺点： ES中每个函数是对象， 因此每定义一个函数就是实例化了一个对象， 所以函数中的每个方法都要在每个实例上重新创建一遍（如下例子中的sayName()）
-```python
+```javascript
 function Person(name, age, job){
   this.name = name;
   this.age = age;
@@ -49,7 +49,7 @@ let person1 = new Person('橙留香', 18, '剑客');
 
 ## 三、原型模式
 每个函数都有一个原型属性（prototype）， 这个属性是一个指针， 指向一个对象。就是通过调用构造函数而创建的那个实例对象的原型对象。
-```python
+```javascript
 function Person(){}
 Person.prototype.name = '陆小果';
 Person.prototype.age = 18;
@@ -62,7 +62,7 @@ let person1 = new Person();
 ```
 更简单的原型语法
 把原型模式简写了， 但简写了之后相当于重写了所有的prototype， 所以不会自动创建constructor， 所以如果constructor很重要的话就必须将constructor设置回适当的值，但是这样会导致constructor的[[enumerable]] 被设置为true， 默认情况下， 原生的constructor属性是不可以枚举的， 所以也可以使用Object.defineproperty()来改变
-```python
+```javascript
 function Person(){}
 Person.prototype = {
   name:'陆小果',
@@ -83,7 +83,7 @@ console.log(person);
 
 ## 四、组合使用构造函数模式和原型模式（最常见）
 构造函数模式用于定义实力属性， 原型模式用于定义方法和共享属性。集两种模式之长。
-```python
+```javascript
 function Person(name, age, job){
   this.name = name;
   this.age = age;
@@ -101,7 +101,7 @@ let person1 = new Person('菠萝小薇', 18, '剑客');
 ## 五、动态原型模式
 把所有的信息都封装在了构造函数中， 而通过构造函数中初始化原型， 又保持了同时使用构造函数和原型的优点。即通过检查某个应该存在的方法是否有效来决定是否需要初始化原型。
 如下例中， 只需要判断任何一个原型中应该存在的属性或方法， 不必检查每个属性和方法。
-```python
+```javascript
 function Person(name, age, job){
   this.name = name;
   this.age = age;
@@ -128,7 +128,7 @@ ES6 引入了类（class）的概念， 可以通过class关键字来定义类�
 这个类的存在， 多被认为是一个ES5的 组合使用构造函数模式和原型模式 的一个语法糖， 示例如下
 但class定义的类中的方法的enumerable属性是false, 都是不能被枚举的。
 用static关键字可以定义一个类的一个静态方法， 调用静态方法不需要实例化该类， 但不能通过一个类实例调用静态方法。通常静态方法用于为一个应用程序创建工具函数
-```python
+```javascript
 class Person{
   constructor(name, age, job){
     this.name = name;

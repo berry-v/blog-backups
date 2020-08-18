@@ -56,14 +56,14 @@ tags: [JavaScript]
 
 ### 遍历NodeList
 如果我们想要遍历一个NodeList对象的话, 可以循环它的长度, 再根据长度去取值.
-```python
+```JavaScript
 for(var i = 0; i< nodeList.length; i++){
 	......
 }
 ```
 不能使用for...in或者for each ...in 因为他会去遍历当前对象的方法
 如下:
-```python
+```JavaScript
 <ul id=”ul-test”>
 	<li class=”li-1”></li>
 	<li id=”li-2”></li>
@@ -81,7 +81,7 @@ console.log(result);
 
 ### 出现NodeList对象的场景. 
 使用如下方法后返回的子节点列表~ ~
-```python
+```JavaScript
 	Node.childNodes
 	document.querySelectorAll()
 	document.getElementsByName()
@@ -104,11 +104,11 @@ document.querySelectorAll返回的NodeList结果
 ### 像数组一样使用
 如果在某些场景下需要像使用数组的一样去使用NodeList
 ##### 使用call
-```python
+```JavaScript
 var arr = Array.prototype.slice.call(NodeList);// IE 问题
 ```
 arr既是一个array类型的数组, 此时就可以使用array的方法
 ##### es6
-```python
+```JavaScript
 var arr = Array.from(NodeList)
 ```
