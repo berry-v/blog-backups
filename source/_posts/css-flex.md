@@ -19,7 +19,7 @@ type: 技术
 注: 本文仅为学习记录, 参考网上提供的资料结合自己的理解和测试而成, 不考虑兼容性, 若需考虑兼容性, 再去查~ ~
 
 ## 属性
-<style type="text/css">ul, li { list-style: none !important; padding: 5px; margin: 3px; }.center li { background-color: #bdcfcf; }.center li:nth-child(1) { background-color: #d3e3e6; }.center li:nth-child(2) { background-color: #c8e2de; }.center li:nth-child(3) { background-color: #87a2a0; }.center li:nth-child(4) { background-color: #85a3a0; }.center li:nth-child(5) { background-color: #7da797; }.center li:nth-child(6) { background-color: #cce7ce; }.center li:nth-child(7) { background-color: #a2bfb8; }.center li:nth-child(8) { background-color: #3d3b3b; }.center li:nth-child(9) { background-color: #798f85; }.center li:nth-child(10) { background-color: #c6c1b5; }.center li:nth-child(11) { background-color: #a18d6f; }.center li:nth-child(12) { background-color: #d7eedd; }.center li:nth-child(13) { background-color: #f9f6ec; }.center li:nth-child(14) { background-color: #f7e39d; }.center { text-align: center; color: #fff; border: 1px solid #daf7f2;}</style>
+<style type="text/css">ul, li { list-style: none !important; padding: 5px; margin: 3px; }.center li { background-color: #bdcfcf; }.center li:nth-child(1) { background-color: #d3e3e6; }.center li:nth-child(2) { background-color: #c8e2de; }.center li:nth-child(3) { background-color: #87a2a0; }.center li:nth-child(4) { background-color: #85a3a0; }.center li:nth-child(5) { background-color: #7da797; }.center li:nth-child(6) { background-color: #cce7ce; }.center li:nth-child(7) { background-color: #a2bfb8; }.center li:nth-child(8) { background-color: #3d3b3b; }.center li:nth-child(9) { background-color: #798f85; }.center li:nth-child(10) { background-color: #c6c1b5; }.center li:nth-child(11) { background-color: #a18d6f; }.center li:nth-child(12) { background-color: #d7eedd; }.center li:nth-child(13) { background-color: #f9f6ec; }.center li:nth-child(14) { background-color: #f7e39d; }.center { text-align: center; color: #fff; border: 1px solid #daf7f2;} .center{width: 820px; margin: 0 auto;}</style>
 
 ### display: flex; 
 
@@ -33,7 +33,7 @@ type: 技术
 <div class="center"><ul style="display: inline-flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
 
 无论是inline-flex 还是flex 当子容器内元素有很多时,全都会排在一排, 挤在一起, 若是容器本身放不下的话就会超出容器, 若是不设置flex-wrap就不换行~~
-<div class="center"><ul style="display: inline-flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
+<div class="center"><ul style="display: inline-flex;"><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li><li>白骨夫人</li><li>女儿国主</li><li>嫦娥姐姐</li><li>盘丝大仙</li><li>玉兔妹妹</li><li>白面狐狸</li></ul></div>
 
 ### flex-direction 
 控制内容的显示的方向, 如下:
